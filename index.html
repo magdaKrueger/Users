@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarządzanie użytkownikami</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+    <h1>Zarządzanie użytkownikami</h1>
+    <div id="addUser">
+        <h2>Dodaj użytkownika</h2>
+        <form class="form" id="addUserForm">
+            <div class="form-column">
+                <p>
+                    <label for="first_name" class="form-label">Imię*</label><br/>
+                    <label for="last_name" class="form-label">Nazwisko*</label>
+                </p>
+                <p>
+                    <input class="form-control" type="text" name="first_name" required id="first_name"/><br/>
+                    <input class="form-control" type="text" name="last_name"  required id="last_name"/>
+                </p>
+            </div>
+
+            <div class="form-column">
+                <p>
+                    <label for="city" class="form-label">Miasto*</label><br/>
+                    <label for="postal_code" class="form-label">Kod pocztowy*</label>
+                </p>
+                <p>
+                    <input class="form-control" type="text" name="city"  required id="city"/><br />
+                    <input class="form-control" type="text" name="postal_code"  required id="postal_code"/>
+                </p>
+            </div>
+            <div class="form-column">
+                <p>
+                    <label for="street" class="form-label">Ulica*</label><br/>
+                    <label for="age" class="form-label">Wiek*</label><br/>
+                </p>
+                <p>
+                    <input class="form-control" type="text" name="street"  required id="street"/><br/>
+                    <input class="form-control" type="text" name="age"  required id="age"/><br/>
+                </p>
+            </div><br/>
+            <button id="btnAddUser">Dodaj użytkownika</button>
+            <button id="btnGetAllUsers">Wczytaj wszystkich użytkowników</button>
+            <button id="btnDeleteUser">Usuń użytkownika</button>
+            <button id="btnUpdateUser">Aktualizuj użytkownika</button>
+
+        </form>
+    </div>
+    <div id="table">
+        <table class="myTable" id="myTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Miasto</th>
+                <th>Kod pocztowy</th>
+                <th>Ulica</th>
+                <th>Wiek</th>
+            </tr>
+            </thead>
+
+        </table>
+
+    </div>
+    <script src="usersAction.js"></script>
+    <script src="tableUsers.js"></script>
+    </body>
+
+</html>

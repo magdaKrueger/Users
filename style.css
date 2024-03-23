@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("images/tlo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Verdana;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #ffffff;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+div{
+    float: left;
+}
+
+.form-label {
+    float: left;
+    font-size: 14px;
+    margin: 10px 5px 10px 0;
+
+}
+
+.form-control {
+    float: right;
+    height: 30px;
+    margin: 3px 3px;
+}
+
+.form-column {
+    margin-left: 20px;
+    margin-right: 30px;
+}
+p {
+    float: left;
+}
+
+button {
+    width: 20vw;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    margin: 20px 20px;
+}
+table {
+    background-color: #eee;
+    color: #555;
+    border-collapse: collapse;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+    margin-left: 10px;
+    /*width: 1500px;*/
+    /*height: 500px;*/
+    /*border: 2px solid black ;*/
+}
+thead {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+td,th {
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+}
+tbody tr {
+    border-bottom: 1px solid #999;
+}
+tbody tr:nth-child(even){
+    background-color: #bbb;
+    color: #eee;
+}
+tbody tr:hover {
+    background-color: #333;
+    color: #fff;
+}
+/*td {*/
+/*    border-bottom: 1px solid black;*/
+/*    width: 200px;*/
+/*    height: 30px;*/
+/*    text-align: center;*/
+/*}*/
+/*th {*/
+/*    border: 1px solid black;*/
+/*    width: 200px;*/
+/*    height: 30px;*/
+/*    text-align: center;*/
+/*}*/
+tbody tr.mark {
+    background-color: #1c1b1b;
+    color: #999999;
+}
+
