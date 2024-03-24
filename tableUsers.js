@@ -1,10 +1,10 @@
 let cell;
 let userId = 0;
+let table = document.getElementById("myTable");
+
 
 const addUserToTable = (users) => {
-    let table = document.getElementById("myTable");
     let tableBody = document.createElement("tbody");
-
     tableBody.id = "tableBody";
     table.appendChild(tableBody);
 
@@ -45,10 +45,16 @@ const removeTable = () => {
 
    if(tableUsersBody == null) {
        console.log("tabeli nie ma: " + tableUsersBody)
-
    }
     else {
        tableUsersBody.remove();
        console.log("wchodzi tu");
    }
 }
+
+// const addSearchedUserToTable = (user) => {
+//     let tableBody = document.createElement("tbody");
+//     tableBody.id = "tableBody";
+//     table.appendChild(tableBody);
+//
+// }

@@ -8,7 +8,7 @@ body {
     background-image: url("images/tlo.png");
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: Verdana;
+    font-family: Tahoma;
 }
 
 h1 {
@@ -53,16 +53,17 @@ p {
 
 button {
     width: 20vw;
-    height: 30px;
-    background-color: rgb(0, 0, 0);
+    height: 40px;
+    background-color: #101E26;
     border: none;
-    border-radius: 20px;
-    color: #fff;
+    border-radius: 10px;
+    color: #fff ;
     margin: 20px 20px;
+
 }
 table {
-    background-color: #eee;
-    color: #555;
+    background-color: #BDD9F2;
+    color: white;
     border-collapse: collapse;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
@@ -72,8 +73,7 @@ table {
     /*border: 2px solid black ;*/
 }
 thead {
-    background-color: #333;
-    color: #fff;
+    background-color: #101E26;
     text-align: center;
 }
 td,th {
@@ -82,15 +82,16 @@ td,th {
     text-align: center;
 }
 tbody tr {
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #BDD9F2;
+    color: #111010;
 }
 tbody tr:nth-child(even){
-    background-color: #bbb;
-    color: #eee;
+    background-color: #166273;
+
 }
 tbody tr:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: #378C8C;
+
 }
 /*td {*/
 /*    border-bottom: 1px solid black;*/
@@ -105,7 +106,6 @@ tbody tr:hover {
 /*    text-align: center;*/
 /*}*/
 tbody tr.mark {
-    background-color: #1c1b1b;
-    color: #999999;
+    background-color: #101E26;
+    color: white;
 }
-
