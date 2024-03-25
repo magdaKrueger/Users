@@ -8,7 +8,6 @@
     <body>
     <h1>Zarządzanie użytkownikami</h1>
     <div id="addUser">
-        <h2>Dodaj użytkownika</h2>
         <form class="form" id="addUserForm">
             <div class="form-column">
                 <p>
@@ -20,7 +19,6 @@
                     <input class="form-control" type="text" name="last_name"  required id="last_name"/>
                 </p>
             </div>
-
             <div class="form-column">
                 <p>
                     <label for="city" class="form-label">Miasto*</label><br/>
@@ -50,7 +48,7 @@
             </div>
         </form>
     </div>
-    <div id="table">
+    <div id="table" class="centered-div">
         <table class="myTable" id="myTable">
             <thead>
             <tr>
@@ -63,12 +61,9 @@
                 <th>Wiek</th>
             </tr>
             </thead>
-
         </table>
-
     </div>
     <script src="usersAction.js"></script>
     <script src="tableUsers.js"></script>
     </body>
-
 </html>
