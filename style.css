@@ -22,7 +22,6 @@ h1 {
 h2 {
     font-size: 18px;
     font-weight: bolder;
-    color: #ffffff;
     margin-left: 20px;
     margin-bottom: 10px;
 }
@@ -67,10 +66,7 @@ table {
     border-collapse: collapse;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
-    margin-left: 10px;
-    /*width: 1500px;*/
-    /*height: 500px;*/
-    /*border: 2px solid black ;*/
+    margin-left: 60px;
 }
 thead {
     background-color: #101E26;
@@ -83,10 +79,11 @@ td,th {
 }
 tbody tr {
     border-bottom: 1px solid #BDD9F2;
-    color: #111010;
+    color: black;
 }
 tbody tr:nth-child(even){
     background-color: #166273;
+    color: #ffffff;
 
 }
 tbody tr:hover {
