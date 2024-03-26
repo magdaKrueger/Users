@@ -4,6 +4,7 @@ let table = document.getElementById("myTable");
 
 
 const addUserToTable = (users) => {
+    removeTable();
     let tableBody = document.createElement("tbody");
     tableBody.id = "tableBody";
     table.appendChild(tableBody);
@@ -42,13 +43,14 @@ const addUserToTable = (users) => {
 
 const removeTable = () => {
     let tableUsersBody = document.getElementById("tableBody");
-
-   if(tableUsersBody == null) {
-       console.log("tabeli nie ma: " + tableUsersBody)
+console.log("removeTable");
+    console.log(tableUsersBody);
+   if(tableUsersBody === null) {
+       console.log("tabeli nie ma: ");
    }
     else {
        tableUsersBody.remove();
-       console.log("wchodzi tu");
+       console.log("wchodzi tu - tabela jest");
    }
 }
 

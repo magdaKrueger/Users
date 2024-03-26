@@ -1,11 +1,6 @@
 let url = "https://fronttest.ekookna.pl/";
 
-let firstName = document.getElementById("first_name").value;
-let lastName = document.getElementById("last_name").value;
-let city = document.getElementById("city").value;
-let postalCode = document.getElementById("postal_code").value;
-let street = document.getElementById("street").value;
-let age = document.getElementById("age").value;
+
 
 const btnSearchUser = document.getElementById("btnSearchUser");
 const btnAddUser = document.getElementById("btnAddUser");
@@ -16,6 +11,13 @@ const btnUpdateUser = document.getElementById("btnUpdateUser");
 let users;
 
 const getDataUser = () => {
+    let firstName = document.getElementById("first_name").value;
+    let lastName = document.getElementById("last_name").value;
+    let city = document.getElementById("city").value;
+    let postalCode = document.getElementById("postal_code").value;
+    let street = document.getElementById("street").value;
+    let age = document.getElementById("age").value;
+
     let formData = new FormData();
     formData.append("first_name", firstName);
     formData.append("last_name", lastName);
@@ -57,30 +59,27 @@ const searchUser = () => {
 
 const sendUser = () => {
 
-
+let formData = getDataUser();
     // // Sprawdzamy, czy jakiekolwiek pole jest puste
     // if(firstName === "" || lastName === "" || city === "" || postalCode === "" || street === "" || age === "") {
     //     alert("Wypełnij wszystkie pola formularza!");
     //     return;
     // }
 
-        //const data = Object.fromEntries(getDataUser());
-    console.log(getDataUser());
+    //     const data = Object.fromEntries(getDataUser());
+    console.log(formData);
         fetch(`${url}user`, {
             method: "POST",
-            body: getDataUser(),//JSON.stringify(data)//formData,
+            body: formData,//JSON.stringify(data)//getDataUser(),//JSON.stringify(data)//formData,
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log("odpowiedź: " + data.users)
-                users = data.users;
+            .then(res => res.json());
                 //clearFields();
-              getAllUsers();
-            });
-   // }
+             getAllUsers();
+
+
    //  let request = new XMLHttpRequest();
    //  request.open("POST", url + "user", true);
-   //  request.send(formData);
+   //  request.send(getDataUser());
 }
 
 // const clearFields = () => {
