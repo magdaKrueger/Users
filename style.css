@@ -95,7 +95,7 @@ td,th {
 
 tbody tr {
     border-bottom: 1px solid #BDD9F2;
-    color: #111010;
+    color: black;
 }
 
 tbody tr:nth-child(even) {
