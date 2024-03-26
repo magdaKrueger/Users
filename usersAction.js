@@ -1,153 +1,169 @@
 let url = "https://fronttest.ekookna.pl/";
 
-
-
 const btnSearchUser = document.getElementById("btnSearchUser");
 const btnAddUser = document.getElementById("btnAddUser");
 const btnGetAllUsers = document.getElementById("btnGetAllUsers");
 const btnDeleteUser = document.getElementById("btnDeleteUser");
 const btnUpdateUser = document.getElementById("btnUpdateUser");
-
-let users;
-
-const getDataUser = () => {
-    let firstName = document.getElementById("first_name").value;
-    let lastName = document.getElementById("last_name").value;
-    let city = document.getElementById("city").value;
-    let postalCode = document.getElementById("postal_code").value;
-    let street = document.getElementById("street").value;
-    let age = document.getElementById("age").value;
-
-    let formData = new FormData();
-    formData.append("first_name", firstName);
-    formData.append("last_name", lastName);
-    formData.append("city", city);
-    formData.append("postal_code", postalCode);
-    formData.append("street", street);
-    formData.append("age", age);
-    return formData;
-}
-
-const searchUser = () => {
-    getAllUsers();
-
-    let lastName = document.getElementById("last_name").value;
-    let searchedUsers = new Map();
-
-
-    if(users !== null) {
-        users.forEach(user => {
-            console.log("user.last_name: " + user.last_name);
-            console.log("lastName: " + lastName);
-          if(user.last_name === lastName){
-              searchedUsers.set(user.id, user);
-              console.log("searched: " + searchedUsers);
-          }
-        });
-        if(searchedUsers.size)
-            alert("Nie znaleziono takiego użytkownika!")
-        else {
-            console.log("searched w else: " + searchedUsers);
-            addUserToTable(searchedUsers);
-        }
-
-    }
-    else
-        alert("Brak użytkowników do przeszukania!")
-
-}
+const btnFilterAge = document.getElementById("btnFilterAge");
+const form = document.getElementById("addUserForm");
+form.addEventListener('submit', (e) => e.preventDefault());
 
 const sendUser = () => {
+    if(!isEmptyFields()) {
+        const formDataUser = new FormData(form);
 
-let formData = getDataUser();
-    // // Sprawdzamy, czy jakiekolwiek pole jest puste
-    // if(firstName === "" || lastName === "" || city === "" || postalCode === "" || street === "" || age === "") {
-    //     alert("Wypełnij wszystkie pola formularza!");
-    //     return;
-    // }
-
-    //     const data = Object.fromEntries(getDataUser());
-    console.log(formData);
         fetch(`${url}user`, {
             method: "POST",
-            body: formData,//JSON.stringify(data)//getDataUser(),//JSON.stringify(data)//formData,
+            body: formDataUser,
         })
-            .then(res => res.json());
-                //clearFields();
-             getAllUsers();
-
-
-   //  let request = new XMLHttpRequest();
-   //  request.open("POST", url + "user", true);
-   //  request.send(getDataUser());
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                clearFields();
+                getAllUsers();
+            })
+            .catch(err => console.log(err));
+    }
+    else
+        alert("Uzupełnij wszystkie dane!");
 }
 
-// const clearFields = () => {
-//     let textFields = document.querySelectorAll('input[type="text"]');
-//
-//     textFields.forEach(field => {
-//         field.value = '';
-//     });
-// };
+const isEmptyFields = () => {
+    let emptyField = false;
+    let textFields = document.querySelectorAll('input[type="text"]');
+
+    textFields.forEach(field => {
+        if(field.value === ''){
+            emptyField = true;
+            return emptyField;
+        }
+    });
+    return emptyField;
+}
+const clearFields = () => {
+    let textFields = document.querySelectorAll('input[type="text"]');
+    textFields.forEach(field => field.value = '');
+};
 
 const getAllUsers = () => {
-    removeTable();
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            users = data.users;
-
-            addUserToTable(users);
-        });
+            let dataUsers = data.users;
+            addUserToTable(dataUsers);
+        })
+        .catch(err => console.log(err));
 }
 
 const deleteUser = () => {
-    console.log("deleteUser: " + userId)
     if (userId !== 0) {
         const urlDelete = url + `user/${userId}?_method=DELETE`;
-        console.log("url: " + urlDelete);
-        fetch(urlDelete, {method: "POST"})
-            .then(res => res.json())
-            .then(data => {
-            users = data.users;
-            getAllUsers();
-        });
-        //getAllUsers();
-
+        fetch(urlDelete, {
+            method: "POST"
+        })
+            .then(res => res.json());
     }
-    else{
+    else
         alert("Wybierz użytkowanika z tabeli, którego chcesz usunać!")
-        getAllUsers();
-    }
 
+    getAllUsers();
+    userId = 0;
 }
 
 const updateUser = () => {
+    const urlUpdate = url + `user/${userId}?_method=PUT`;
+    const formDataUser = new FormData(form);
+
     if (userId !== 0) {
-        const urlUpdate = url + `user/${userId}?_method=PUT`;
-        console.log("url: " + urlUpdate);
-        console.log("id: "+ userId);
+        if(!isEmptyFields()) {
+            fetch(urlUpdate, {
+                method: "POST",
+                body: formDataUser,
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    clearFields();
+                    getAllUsers();
+                })
+                .catch(err => console.log(err));
+        }
+        else
+            alert("Uzupełnij wszystkie dane!");
+    }
+    else
+        alert("Wybierz użytkowanika z tabeli, którego chcesz aktualizować!")
 
+    getAllUsers();
+    userId = 0;
+}
 
-       // const data = Object.fromEntries(getDataUser());
+const searchUser = () => {
+    let lastName = document.getElementById("last_name").value;
+    let dataUsers = null;
+    let searchedUsers;
 
-        fetch(urlUpdate, {
-            method: "POST",
-            body: getDataUser()//JSON.stringify(data)//formData,
-        })
+    if(lastName !== "") {
+        fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log("odpowiedź: " + data.users)
-                users = data.users;
-                //clearFields();
-                getAllUsers();
-            });
+                dataUsers = data.users;
 
+                if(dataUsers !== null) {
+                    searchedUsers = dataUsers.filter(user =>
+                        user.last_name.toUpperCase() === lastName.toUpperCase());
+
+                    if (searchedUsers.size === 0)
+                        alert("Nie znaleziono takiego użytkownika!")
+                    else
+                        addUserToTable(searchedUsers);
+                }
+                else
+                    alert("Brak użytkowników do przeszukania!")
+            })
+            .catch(err => console.log(err));
     }
-    else{
-        alert("Wybierz użytkowanika z tabeli, którego chcesz aktualizować!")
-        getAllUsers();
-    }
+    else
+        alert("Wpisz nazwisko!")
+}
+
+const filterAgeUser = () => {
+    let ageMin = document.getElementById("ageMin").value;
+    let ageMax = document.getElementById("ageMax").value;
+    let dataUsers = null;
+    let filterUsers;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            dataUsers = data.users;
+
+            if(dataUsers !== null) {
+                if(ageMin !== "" && ageMax !== "") {
+                    filterUsers = dataUsers.filter(user =>
+                        user.age >= ageMin && user.age <= ageMax
+                    )
+                }else if(ageMin !== "" && ageMax === "") {
+                    filterUsers = dataUsers.filter(user =>
+                        user.age >= ageMin
+                    )
+                }else if(ageMin === "" && ageMax !== "") {
+                    filterUsers = dataUsers.filter(user =>
+                        user.age <= ageMax
+                    )
+                }else
+                    alert("Uzupełnij wiek jaki chcesz wyszukać!")
+
+                if (filterUsers.size === 0)
+                    alert("Nie znaleziono takiego użytkownika!")
+                else
+                    addUserToTable(filterUsers);
+            }
+            else
+                alert("Brak użytkowników do przeszukania!")
+        })
+        .catch(err => console.log(err));
 }
 
 btnSearchUser.addEventListener("click", searchUser);
@@ -155,5 +171,4 @@ btnAddUser.addEventListener("click", sendUser);
 btnGetAllUsers.addEventListener("click", getAllUsers);
 btnDeleteUser.addEventListener("click", deleteUser);
 btnUpdateUser.addEventListener("click", updateUser);
-
-
+btnFilterAge.addEventListener("click", filterAgeUser);

@@ -2,9 +2,9 @@ let cell;
 let userId = 0;
 let table = document.getElementById("myTable");
 
-
 const addUserToTable = (users) => {
     removeTable();
+
     let tableBody = document.createElement("tbody");
     tableBody.id = "tableBody";
     table.appendChild(tableBody);
@@ -28,11 +28,9 @@ const addUserToTable = (users) => {
         cell.innerText = user.age;
 
         row.addEventListener('click', () =>  {
-            console.log("ID: " + user.id);
             userId = user.id;
 
             let rows = document.querySelectorAll('#tableBody tr');
-
             rows.forEach( row => {
                 row.classList.remove("mark");
             });
@@ -43,20 +41,7 @@ const addUserToTable = (users) => {
 
 const removeTable = () => {
     let tableUsersBody = document.getElementById("tableBody");
-console.log("removeTable");
-    console.log(tableUsersBody);
-   if(tableUsersBody === null) {
-       console.log("tabeli nie ma: ");
-   }
-    else {
-       tableUsersBody.remove();
-       console.log("wchodzi tu - tabela jest");
-   }
-}
 
-// const addSearchedUserToTable = (user) => {
-//     let tableBody = document.createElement("tbody");
-//     tableBody.id = "tableBody";
-//     table.appendChild(tableBody);
-//
-// }
+   if(tableUsersBody !== null)
+       tableUsersBody.remove();
+}

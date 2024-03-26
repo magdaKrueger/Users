@@ -39,8 +39,17 @@
                     <input class="form-control" type="text" name="age"  required id="age"/><br/>
                 </p>
             </div>
-            <button id="btnSearchUser">Szukaj</button>
             <div>
+                <p><button id="btnSearchUser" class="buttonSearch">Szukaj po nazwisku</button></p>
+                <p class="searchAgePanel">
+                    <label for="ageMin" class="label-age">Od</label>
+                    <input class="form-age"  name="ageMin" id="ageMin"/>
+                    <label for="ageMax" class="label-age">Do</label>
+                    <input class="form-age" name="ageMax" id="ageMax"/><br/>
+                    <button id="btnFilterAge" class="buttonFilterAge">Filtruj wiek</button>
+                </p>
+            </div>
+            <div class="btnClass">
             <button id="btnAddUser">Dodaj użytkownika</button>
             <button id="btnGetAllUsers">Wczytaj wszystkich użytkowników</button>
             <button id="btnDeleteUser">Usuń użytkownika</button>

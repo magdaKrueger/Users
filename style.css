@@ -47,7 +47,6 @@ h1 {
     float: left;
     font-size: 14px;
     margin: 10px 5px 10px 0;
-
 }
 
 .form-control {
@@ -69,7 +68,12 @@ button {
     border-radius: 10px;
     color: #fff ;
     margin: 20px 20px;
+}
 
+.buttonSearch {
+    margin-top: 40px;
+    height: 30px;
+    width: 200px;
 }
 
 table {
@@ -110,4 +114,24 @@ tbody tr:hover {
 tbody tr.mark {
     background-color: #101E26;
     color: white;
+}
+
+.form-age {
+    width: 50px;
+    height: 30px;
+}
+
+.label-age {
+    margin-left: 15px;
+}
+
+.buttonFilterAge {
+    margin-top: 10px;
+    margin-left: 0px;
+    height: 30px;
+    width: 200px;
+}
+
+.btnClass {
+    float: left;
 }
