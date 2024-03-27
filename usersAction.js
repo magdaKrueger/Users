@@ -6,6 +6,7 @@ const btnGetAllUsers = document.getElementById("btnGetAllUsers");
 const btnDeleteUser = document.getElementById("btnDeleteUser");
 const btnUpdateUser = document.getElementById("btnUpdateUser");
 const btnFilterAge = document.getElementById("btnFilterAge");
+const btnRemoveFilterAge = document.getElementById("btnRemoveFilterAge");
 const form = document.getElementById("addUserForm");
 form.addEventListener('submit', (e) => e.preventDefault());
 
@@ -172,3 +173,4 @@ btnGetAllUsers.addEventListener("click", getAllUsers);
 btnDeleteUser.addEventListener("click", deleteUser);
 btnUpdateUser.addEventListener("click", updateUser);
 btnFilterAge.addEventListener("click", filterAgeUser);
+btnRemoveFilterAge.addEventListener("click", getAllUsers);

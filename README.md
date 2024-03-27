@@ -17,3 +17,6 @@ You can manage useres from https://fronttest.ekookna.pl/
 - Update user
 - View all users
 - You can also search for a user by last name and filter all users by age
+## For the future
+To expand the project, can add a user search by each of its values, not just by last name.
+Same with filters -> can add a filter to each value.

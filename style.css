@@ -18,7 +18,7 @@ p {
 
 .centered-div {
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     text-align: center;
     clear: both;
 }
@@ -56,12 +56,6 @@ button {
     border-radius: 10px;
     color: #fff ;
     margin: 20px 20px;
-}
-
-.buttonSearch {
-    margin-top: 40px;
-    height: 30px;
-    width: 200px;
 }
 
 table {
@@ -113,13 +107,35 @@ tbody tr.mark {
     margin-left: 15px;
 }
 
+.buttonSearch {
+    margin-top: 40px;
+    margin-bottom: 0;
+    height: 30px;
+    width: 200px;
+}
+
 .buttonFilterAge {
     margin-top: 10px;
-    margin-left: 0px;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 30px;
+    width: 200px;
+}
+
+.btnRemoveFilterAge {
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 130px;
     height: 30px;
     width: 200px;
 }
 
 .btnClass {
     float: left;
+}
+
+.filter {
+    float: left;
+    width: 500px;
+    height: 100px;
 }

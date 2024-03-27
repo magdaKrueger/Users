@@ -15,8 +15,8 @@
                     <label for="last_name" class="form-label">Nazwisko*</label>
                 </p>
                 <p>
-                    <input class="form-control" type="text" name="first_name" required id="first_name"/><br/>
-                    <input class="form-control" type="text" name="last_name"  required id="last_name"/>
+                    <input class="form-control" type="text" name="first_name" id="first_name"/><br/>
+                    <input class="form-control" type="text" name="last_name" id="last_name"/>
                 </p>
             </div>
             <div class="form-column">
@@ -25,8 +25,8 @@
                     <label for="postal_code" class="form-label">Kod pocztowy*</label>
                 </p>
                 <p>
-                    <input class="form-control" type="text" name="city"  required id="city"/><br />
-                    <input class="form-control" type="text" name="postal_code"  required id="postal_code"/>
+                    <input class="form-control" type="text" name="city" id="city"/><br />
+                    <input class="form-control" type="text" name="postal_code" id="postal_code"/>
                 </p>
             </div>
             <div class="form-column">
@@ -35,23 +35,24 @@
                     <label for="age" class="form-label">Wiek*</label><br/>
                 </p>
                 <p>
-                    <input class="form-control" type="text" name="street"  required id="street"/><br/>
-                    <input class="form-control" type="text" name="age"  required id="age"/><br/>
+                    <input class="form-control" type="text" name="street" id="street"/><br/>
+                    <input class="form-control" type="text" name="age" id="age"/><br/>
                 </p>
             </div>
-            <div>
-                <p><button id="btnSearchUser" class="buttonSearch">Szukaj po nazwisku</button></p>
+            <div class="filter">
+                <button id="btnSearchUser" class="buttonSearch">Filtruj nazwisko</button>
                 <p class="searchAgePanel">
                     <label for="ageMin" class="label-age">Od</label>
                     <input class="form-age"  name="ageMin" id="ageMin"/>
                     <label for="ageMax" class="label-age">Do</label>
                     <input class="form-age" name="ageMax" id="ageMax"/><br/>
-                    <button id="btnFilterAge" class="buttonFilterAge">Filtruj wiek</button>
+                    <button id="btnFilterAge" class="buttonFilterAge">Filtruj wiek</button><br/>
                 </p>
+                <button id="btnRemoveFilterAge" class="btnRemoveFilterAge">Usuń filtr</button>
             </div>
             <div class="btnClass">
             <button id="btnAddUser">Dodaj użytkownika</button>
-            <button id="btnGetAllUsers">Wczytaj wszystkich użytkowników</button>
+            <button id="btnGetAllUsers">Pokaż wszystkich użytkowników</button>
             <button id="btnDeleteUser">Usuń użytkownika</button>
             <button id="btnUpdateUser">Aktualizuj użytkownika</button>
             </div>
